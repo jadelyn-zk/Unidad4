@@ -3,11 +3,11 @@ package parteCRUDej1;
 public class Alumno {
 
 		String nombre;
-		double notaMedia;
+		double nota;
 
-		public Alumno(String nombre, double notaMedia) {
+		public Alumno(String nombre, double nota) {
 			this.nombre = nombre;
-			this.notaMedia = notaMedia;
+			this.nota = nota;
 		}
 		
 		
@@ -16,27 +16,20 @@ public class Alumno {
 		}
 
 		public double getNotaMedia() {
-			return notaMedia;
+			return nota;
 		}
 
 		public void setNombre(String nombre) {
 			this.nombre = nombre;
 		}
 
-		public void setNotaMedia(double notaMedia) {
-			this.notaMedia = notaMedia;
+		public void setNota(double nota) {
+			this.nota = nota;
 		}
 
 		@Override
 		public String toString() {
-			return "El alumno " + nombre + ", con la nota media=" + notaMedia;
+			return "El alumno " + nombre + ", con la nota media=" + nota;
 		}
-
-		public String compararNombre(Alumno alum2) {
-			if(this.nombre.equals(alum2.nombre)) {
-				return "Son el mismo alumno";
-			}else return "Son diferentes alumnos";
-		} 	
-	}
-
-}
+ 	
+	}//fin alumno
