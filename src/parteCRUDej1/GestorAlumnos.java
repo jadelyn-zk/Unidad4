@@ -77,7 +77,7 @@ public class GestorAlumnos {
 		return encontrado;
 	}
 
-	// Método para borrar un alumno
+	// Método para borrar un alumnoaaa
 	public boolean borrarAlumno(String nombreBuscado) {
 	    boolean encontrado = false;
 	    Alumno alumno;
