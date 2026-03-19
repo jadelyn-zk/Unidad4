@@ -26,33 +26,34 @@ public class GestionArticulo {
     }
     
     
-    
-    
-	public void modificarArticulo(Articulo articuloParaDarAlta) {
+	public void asignarPropiedades(Articulo articuloParaModificar) {
 		
-		for(Articulo articuloEnLista : listaArticulos) {
-			if (articuloEnLista.equals(articuloParaDarAlta)) {
+				System.out.println("Introduce el nombre del articulo a dar de alta: ");
+				articuloParaModificar.nombre= sc.next();
 				
+				System.out.println("Introduce el codigo de tu articulo: ");
+				articuloParaModificar.codigo=sc.next();
+				
+				System.out.println("Introduce el precio de compra del articulo: ");
+				articuloParaModificar.precioCompra=sc.nextDouble();
+				
+				System.out.println("Introduce el precio de venta del articulo: ");
+				articuloParaModificar.precioVenta=sc.nextDouble();
+				
+				System.out.println("Introduce el stock: ");
+				articuloParaModificar.stock= sc.nextInt();		
+			} //fin modificar
+	
+	public void modificarArticulo(Articulo articuloParaModificar) {
+		for(Articulo articuloEnLista : listaArticulos) {
+			if (articuloEnLista.equals(articuloParaModificar)) {
+				asignarPropiedades(articuloParaModificar);
 			}
 		}
-		System.out.println("Introduce el nombre del articulo a dar de alta: ");
-		articuloParaDarAlta.nombre= sc.next();
-		
-		System.out.println("Introduce el codigo de tu articulo: ");
-		articuloParaDarAlta.codigo=sc.next();
-		
-		System.out.println("Introduce el precio de compra del articulo: ");
-		articuloParaDarAlta.precioCompra=sc.nextDouble();
-		
-		System.out.println("Introduce el precio de venta del articulo: ");
-		articuloParaDarAlta.precioVenta=sc.nextDouble();
-		
-		System.out.println("Introduce el stock: ");
-		articuloParaDarAlta.stock= sc.nextInt();
-		
-	}//fin modificar
+	}
 	
-	public void darDeAlta(Articulo articuloParaDarBaja) {
+	public void darDeAlta(Articulo articuloParaDarAlta) {
+		asignarPropiedades(articuloParaDarAlta);
 		listaArticulos.add(articuloParaDarAlta);
 
 	}
@@ -61,7 +62,7 @@ public class GestionArticulo {
 		System.out.println("Introduce el codigo del articulo a dar de baja");
 		for (Articulo articulo : listaArticulos) {
 	        if (articulo.getCodigo().equals(codigoBuscado)) {
-	        	listaArticulos.remove(articuloParaDarBaja);
+	        	listaArticulos.remove(articulo);
 	        }
 	}
 	}
@@ -70,7 +71,9 @@ public class GestionArticulo {
 	 * 	Alta
 	 * 
 		Baja
+		
 		Modificación
+		
 		Entrada de mercancía
 		Salida de mercancía
 		Salida
