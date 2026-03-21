@@ -16,13 +16,14 @@ public class GestionArticulo {
     }
     
     public Articulo buscarPorCodigo (String codigo) {
-    	Articulo articuloDeSalida=null;
+    	Articulo articuloSalida=null;
     	
     	for(Articulo articuloEnLista: listaArticulos) {
     		if(articuloEnLista.getCodigo().equals(codigo)) {
-    			return articuloEnLista;
+    			articuloSalida= articuloEnLista;
     		}
     	}
+		return articuloSalida;
     }
     
     
@@ -44,10 +45,11 @@ public class GestionArticulo {
 				articuloParaModificar.stock= sc.nextInt();		
 			} //fin modificar
 	
-	public void modificarArticulo(Articulo articuloParaModificar) {
+	
+	public void modificarArticulo(String codigoBuscado) {
 		for(Articulo articuloEnLista : listaArticulos) {
-			if (articuloEnLista.equals(articuloParaModificar)) {
-				asignarPropiedades(articuloParaModificar);
+			if (codigoBuscado.equals(articuloEnLista.getCodigo())) {
+				asignarPropiedades(articuloEnLista);
 			}
 		}
 	}
@@ -58,14 +60,20 @@ public class GestionArticulo {
 
 	}
 	
-	public void darDeBaja(ArrayList listaArticulos, String codigoBuscado) {
-		System.out.println("Introduce el codigo del articulo a dar de baja");
-		for (Articulo articulo : listaArticulos) {
-	        if (articulo.getCodigo().equals(codigoBuscado)) {
-	        	listaArticulos.remove(articulo);
+	//metodo que recorre el for al reves, por que al eliminar un elemento del array los incices se desplazan, asi lo evitamos
+	public void darDeBaja(ArrayList<Articulo> listaArticulos, String codigoBuscado) {
+	    System.out.println("Introduce el codigo del articulo a dar de baja");
+	    for (int i = listaArticulos.size() - 1; i >= 0; i--) {
+	        if (listaArticulos.get(i).getCodigo().equals(codigoBuscado)) {
+	            listaArticulos.remove(i);
 	        }
+	    }
 	}
+	
+	public void entradaMercancia() {
+		
 	}
+	
 	
 	/*
 	 * 	Alta
